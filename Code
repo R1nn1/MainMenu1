@@ -39,12 +39,24 @@ uiGradient.Color = ColorSequence.new{
 }
 uiGradient.Parent = mainFrame
 
+-- Create the "Rinns Hub" label
+local titleLabel = Instance.new("TextLabel")
+titleLabel.Size = UDim2.new(1, 0, 0, 30)
+titleLabel.Position = UDim2.new(0, 0, 0, 0)
+titleLabel.BackgroundTransparency = 1
+titleLabel.Text = "Rinns Hub"
+titleLabel.TextScaled = true
+titleLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+titleLabel.Font = Enum.Font.SourceSansBold
+titleLabel.Parent = mainFrame
+
 -- Create the "spotm" button
 local spotmButton = Instance.new("TextButton")
 spotmButton.Size = UDim2.new(0, 160, 0, 40)
-spotmButton.Position = UDim2.new(0, 10, 0, 10)
+spotmButton.Position = UDim2.new(0, 10, 0, 40)
 spotmButton.BackgroundColor3 = Color3.fromRGB(255, 85, 85)
 spotmButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+spotmButton.TextScaled = true
 spotmButton.Text = "spotm"
 spotmButton.Parent = mainFrame
 
@@ -53,13 +65,14 @@ local spotmButtonCorner = Instance.new("UICorner")
 spotmButtonCorner.CornerRadius = UDim.new(0, 12)
 spotmButtonCorner.Parent = spotmButton
 
--- Create the "Murderers vs Sheriff's" button
+-- Create the "Murderers vs Sheriff's Duels" button
 local mvssButton = Instance.new("TextButton")
 mvssButton.Size = UDim2.new(0, 160, 0, 40)
-mvssButton.Position = UDim2.new(0, 10, 0, 60)
+mvssButton.Position = UDim2.new(0, 10, 0, 90)
 mvssButton.BackgroundColor3 = Color3.fromRGB(85, 85, 255)
 mvssButton.TextColor3 = Color3.fromRGB(255, 255, 255)
-mvssButton.Text = "Murderers vs Sheriff's"
+mvssButton.TextScaled = true
+mvssButton.Text = "Murderers vs Sheriff's Duels"
 mvssButton.Parent = mainFrame
 
 -- Add UI corner to the mvss button
@@ -67,19 +80,20 @@ local mvssButtonCorner = Instance.new("UICorner")
 mvssButtonCorner.CornerRadius = UDim.new(0, 12)
 mvssButtonCorner.Parent = mvssButton
 
--- Create the image label
-local imageLabel = Instance.new("ImageLabel")
-imageLabel.Size = UDim2.new(0, 160, 0, 160)
-imageLabel.Position = UDim2.new(1, -180, 0, 10)
-imageLabel.BackgroundTransparency = 1
-imageLabel.Image = "rbxassetid://123456789" -- Replace with your default image asset ID
-imageLabel.Parent = mainFrame
+-- Create the image button (instead of image label)
+local imageButton = Instance.new("ImageButton")
+imageButton.Size = UDim2.new(0, 160, 0, 160)
+imageButton.Position = UDim2.new(1, -180, 0, 40)
+imageButton.BackgroundTransparency = 1
+imageButton.Image = "rbxassetid://123456789" -- Default image
+imageButton.Parent = mainFrame
 
 -- Create the "Run Script" button
 local runButton = Instance.new("TextButton")
 runButton.Size = UDim2.new(0, 160, 0, 40)
-runButton.Position = UDim2.new(1, -180, 0, 180)
+runButton.Position = UDim2.new(1, -180, 0, 190) -- Moved up
 runButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+runButton.TextScaled = true
 runButton.Text = "Run Script"
 runButton.Parent = mainFrame
 
@@ -99,8 +113,9 @@ runButtonCorner.Parent = runButton
 -- Create the "Exit" button
 local exitButton = Instance.new("TextButton")
 exitButton.Size = UDim2.new(0, 160, 0, 40)
-exitButton.Position = UDim2.new(1, -180, 0, 230)
+exitButton.Position = UDim2.new(1, -180, 0, 240) -- Moved up
 exitButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+exitButton.TextScaled = true
 exitButton.Text = "Exit"
 exitButton.Parent = mainFrame
 
@@ -117,15 +132,18 @@ local exitButtonCorner = Instance.new("UICorner")
 exitButtonCorner.CornerRadius = UDim.new(0, 12)
 exitButtonCorner.Parent = exitButton
 
+local scriptToRun = ""
+
 -- Function to handle the "spotm" button click
 spotmButton.MouseButton1Click:Connect(function()
     scriptToRun = "https://raw.githubusercontent.com/R1nn1/Spotm-script/main/Main%20loadstring"
+    imageButton.Image = "rbxassetid://17834987668" -- Change to your specific image asset ID for spotm
 end)
 
--- Function to handle the "Murderers vs Sheriff's" button click
+-- Function to handle the "Murderers vs Sheriff's Duels" button click
 mvssButton.MouseButton1Click:Connect(function()
     scriptToRun = "https://raw.githubusercontent.com/R1nn1/B-1/main/Script"
-    imageLabel.Image = "rbxassetid://17818460317" -- Change the image label
+    imageButton.Image = "rbxassetid://17818460317" -- Change to your specific image asset ID for Murderers vs Sheriff's Duels
 end)
 
 -- Function to handle the "Run Script" button click
@@ -146,4 +164,3 @@ exitButton.MouseButton1Click:Connect(function()
     wait(0.5)
     screenGui:Destroy()
 end)
-
