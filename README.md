@@ -1,2 +1,2 @@
 don't skid please 😞🙏
-.gg/PaGkjSghBU
+https://discord.com/invite/x55Rw6PD7x
